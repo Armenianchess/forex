@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>Form!</title>
+</head>
+<body>
+<form method="POST" action="{{ url_for('form') }}">
+    {{ form.csrf_token }}
+    
+    {% for error in form.converting_from.errors %}
+        <p style="background-color: #FF6348; padding: 10px; width: 280px; color: white; border-radius: 5px;">{{ error }}</p>
+    {% endfor %}
+    {% for error in form.converting_to.errors %}
+        <p style="background-color: #FF6348; padding: 10px; width: 280px; color: white; border-radius: 5px;">{{ error }}</p>
+    {% endfor %}
+    {% for error in form.amount.errors %}
+        <p style="background-color: #FF6348; padding: 10px; width: 280px; color: white; border-radius: 5px;">{{ error }}</p>
+    {% endfor %}
+    {{ form.converting_from.label }}
+    {{ form.converting_from }}
+    <br><br>
+    {{ form.converting_to.label }}
+    {{ form.converting_to }}
+    <br><br>
+    {{ form.amount.label }}
+    {{ form.amount }}
+    <br><br>
+    <input style="background-color: #017CFF; padding: 10px; color: white; border-radius: 5px;" type="submit" value="Convert">
+</form>
+</body>
+</html>
